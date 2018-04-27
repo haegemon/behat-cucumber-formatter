@@ -146,7 +146,7 @@ class Step
 
         return [
             'status' => $status,
-            'error_message' => $this->getException(),
+            'error_message' => (string)$this->getException(),
             'duration' => $this->getDuration() * 1000 * 1000000,
         ];
     }

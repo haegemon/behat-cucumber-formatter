@@ -86,13 +86,13 @@ class JsonRenderer implements RendererInterface
     protected function processFeature(Node\Feature $feature)
     {
         $currentFeature = [
-            'uri' => $feature->getUri(),
+            'uri' => (string)$feature->getUri(),
             'id' => $feature->getId(),
             'tags' => $feature->getTags() ? $this->processTags($feature->getTags()) : [],
-            'keyword' => $feature->getKeyword(),
-            'name' => $feature->getName(),
+            'keyword' => (string)$feature->getKeyword(),
+            'name' => (string)$feature->getName(),
             'line' => $feature->getLine(),
-            'description' => $feature->getDescription(),
+            'description' => (string)$feature->getDescription(),
             'elements' => [],
         ];
 
@@ -115,10 +115,10 @@ class JsonRenderer implements RendererInterface
         $currentScenario = [
             'id' => $scenario->getId(),
             'tags' => $scenario->getTags() ? $this->processTags($scenario->getTags()) : [],
-            'keyword' => $scenario->getKeyword(),
-            'name' => $scenario->getName(),
+            'keyword' => (string)$scenario->getKeyword(),
+            'name' => (string)$scenario->getName(),
             'line' => $scenario->getLine(),
-            'description' => $scenario->getDescription(),
+            'description' => (string)$scenario->getDescription(),
             'type' => $scenario->getType(),
             'steps' => [],
             'examples' => [],
@@ -147,7 +147,7 @@ class JsonRenderer implements RendererInterface
     protected function processStep(Node\Step $step)
     {
         $result = [
-            'keyword' => $step->getKeyword(),
+            'keyword' => (string)$step->getKeyword(),
             'name' => $step->getName(),
             'line' => $step->getLine(),
             'match' => $step->getMatch(),
